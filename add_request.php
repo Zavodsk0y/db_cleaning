@@ -1,5 +1,4 @@
 <?php
-global $mysqli;
 require_once 'dbconnect.php';
 $content = '';
 $errors = [];

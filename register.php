@@ -1,5 +1,4 @@
 <?php
-global $mysqli;
 require_once 'dbconnect.php';
 $content = '';
 $errors = [];
@@ -44,6 +43,7 @@ ob_start();
     <label>Повтор пароля <input type="password" name="repeat"></label><br>
     <input type="submit" name="submit" value="Зарегистрироваться">
 </form>
+<a href="login.php">Уже есть аккаунт? Войти в систему</a>
 <?php
 $content = ob_get_clean();
 $title = 'Регистрация';

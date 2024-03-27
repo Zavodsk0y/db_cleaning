@@ -1,5 +1,4 @@
 <?php
-global $mysqli;
 require_once 'dbconnect.php';
 $content = '';
 
@@ -11,7 +10,6 @@ else {
     $user = mysqli_fetch_assoc($res);
     $id = $user['id'];
 }
-$title = 'Вход в систему';
 
 $requestsQuery = "SELECT r.* FROM `requests` r 
                       JOIN `user_requests` ur ON r.id = ur.request_id 
@@ -40,6 +38,7 @@ $requestsQuery = "SELECT r.* FROM `requests` r
         $content = "<h1>Добро пожаловать, $login </h1>
         <p>У вас пока нет заявок</p>
         <a href='add_request.php'>Создать заявку</a>
+        <a href='requests.php'>Управление заявками (администратор)</a>
         <a href='logout.php'>Выйти из аккаунта</a>";
     }
 $title = 'Главная';
