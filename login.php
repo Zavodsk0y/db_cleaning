@@ -27,6 +27,7 @@ ob_start();
     <label>Пароль <input type="password" name="password"></label><br>
     <input type="submit" name="submit" value="Войти в систему">
 </form>
+<a href="register.php">Нет аккаунта? Зарегистрируйтесь</a>
 <?php
 $content = ob_get_clean();
 include 'layout.php';

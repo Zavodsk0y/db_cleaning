@@ -18,7 +18,8 @@ if (mysqli_num_rows($requestsResult) > 0) {
 } else {
     echo "<p>У вас пока нет заявок.</p>";
 }
-echo "<a href='logout.php'>Выйти из аккаунта</a>";
+echo "<a href='logout.php'>Выйти из аккаунта</a> <br>";
+echo "<a href='add_request.php'>Создать заявку</a>";
 $content = ob_get_clean();
 include 'layout.php';
 ?>
