@@ -1,4 +1,3 @@
 <?php
-require_once 'dbconnect.php';
-setcookie('login', null);
+setcookie('login', '', time() - 3600);
 header('Location: login.php');

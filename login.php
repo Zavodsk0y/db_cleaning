@@ -10,7 +10,7 @@ if (!empty($_POST['submit']) && $_POST['submit'] === 'Войти в систем
 
     if ($result && mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
-        setcookie('login', $user['login']);
+        setcookie('login', $user['login'], time() + 86400);
         header('Location: index.php');
         exit();
     } else {
@@ -18,20 +18,16 @@ if (!empty($_POST['submit']) && $_POST['submit'] === 'Войти в систем
     }
 }
 
-$title = 'Вход в систему';
 ob_start();
 ?>
 <h1>Вход в систему</h1>
-<?php if (isset($error)) : ?>
-    <p style="color: red;"><?php echo $error; ?></p>
-<?php endif; ?>
+<?php if (isset($error)) echo "<p style='color: red;'>$error</p>"; ?>
 <form action="login.php" method="post">
     <label>Логин <input type="text" name="login"></label><br>
     <label>Пароль <input type="password" name="password"></label><br>
     <input type="submit" name="submit" value="Войти в систему">
 </form>
-<a href="register.php">Нет аккаунта? Зарегистрироваться</a>
 <?php
 $content = ob_get_clean();
-require_once 'layout.php';
+include 'layout.php';
 ?>
