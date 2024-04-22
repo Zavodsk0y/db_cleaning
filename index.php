@@ -2,9 +2,6 @@
 require_once 'init.php';
 require_once 'methods.php';
 
-$user = getUserById($mysqli, $login);
-$id = $user['id'];
-
 $requestsResult = getAllRequestsForUser($mysqli, $id);
 
 ob_start();

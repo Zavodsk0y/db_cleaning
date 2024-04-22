@@ -14,12 +14,14 @@ if (isset($_POST['change_status'])) {
     $newStatus = $_POST['new_status'];
     $updateQuery = "UPDATE `requests` SET status = '$newStatus' WHERE id = $requestId";
     mysqli_query($mysqli, $updateQuery);
+    header('Location: requests.php');
 }
 
 if (isset($_POST['delete_request'])) {
     $requestId = $_POST['request_id'];
     $deleteQuery = "DELETE FROM `requests` WHERE id = $requestId";
     mysqli_query($mysqli, $deleteQuery);
+    header('Location: requests.php');
 }
 
 ob_start();

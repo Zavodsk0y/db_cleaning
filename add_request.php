@@ -4,9 +4,6 @@ require_once 'methods.php';
 
 $errors = [];
 
-$user = getUserById($mysqli, $login);
-$id = $user['id'];
-
 if (!empty($_POST) && $_POST['submit'] === 'Отправить заявку') {
     $fio = $_POST['fio'];
     $description = $_POST['productDescription'];
