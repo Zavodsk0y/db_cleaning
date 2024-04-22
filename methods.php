@@ -1,13 +1,13 @@
 <?php
 
-function getUserById($mysqli, $login)
+function getUserById($mysqli, string $login): array
 {
     $query = "SELECT id FROM `users` WHERE login = '$login'";
     $res = mysqli_query($mysqli, $query);
     return mysqli_fetch_assoc($res);
 }
 
-function getAllRequestsForUser($mysqli, $userId)
+function getAllRequestsForUser($mysqli, int $userId): bool|mysqli_result
 {
     $requestsQuery = "SELECT r.* FROM `requests` r 
                       JOIN `user_requests` ur ON r.id = ur.request_id 
@@ -15,7 +15,7 @@ function getAllRequestsForUser($mysqli, $userId)
     return mysqli_query($mysqli, $requestsQuery);
 }
 
-function getUserRoles($mysqli, $userId) {
+function getUserRoles($mysqli, int $userId): array {
     $roles = [];
     $roleQuery = "SELECT r.name FROM `roles` r 
                   JOIN `user_roles` ur ON r.id = ur.role_id 
@@ -27,4 +27,4 @@ function getUserRoles($mysqli, $userId) {
     return $roles;
 }
 
-?>
+
